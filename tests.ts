@@ -47,26 +47,26 @@ console.log("• lastIndexOf() - Dernier index de 'Adelie':", especies.lastIndex
 const iles = penguins.map(p => p.island);
 console.log("• includes() - Île 'Dream' existe-t-elle?", iles.includes("Dream"));
 
-// // some() - Teste si au moins un élément satisfait une condition
-// const auMoinsUnLourd = penguins.some(p => p.body_mass_g != null && /* TODO */);
-// console.log("• some() - Y a-t-il des pingouins > 6000g?", auMoinsUnLourd);
+// some() - Teste si au moins un élément satisfait une condition
+const auMoinsUnLourd = penguins.some(p => p.body_mass_g != null && p.body_mass_g > 6000);
+console.log("• some() - Y a-t-il des pingouins > 6000g?", auMoinsUnLourd);
 
-// // every() - Teste si tous les éléments satisfent une condition
-// const tousOntMasse = penguins.every(/* TODO */);
-// console.log("• every() - Tous ont une masse > 0?", tousOntMasse);
-// console.log();
+// every() - Teste si tous les éléments satisfent une condition
+const tousOntMasse = penguins.every(p => p.body_mass_g != null && p.body_mass_g > 0);
+console.log("• every() - Tous ont une masse > 0?", tousOntMasse);
+console.log();
 
-// // ===== MÉTHODES DE FILTRAGE =====
+// ===== MÉTHODES DE FILTRAGE =====
 
-// console.log("--- MÉTHODES DE FILTRAGE ---");
+console.log("--- MÉTHODES DE FILTRAGE ---");
 
-// // filter() - Crée un nouveau tableau avec les éléments qui passent un test
-// const pingousinsMales = penguins.filter(/* TODO */);
-// console.log("• filter() - Nombre de mâles:", pingousinsMales.length);
+// filter() - Crée un nouveau tableau avec les éléments qui passent un test
+const pingousinsMales = penguins.filter();
+console.log("• filter() - Nombre de mâles:", pingousinsMales.length);
 
-// const pingouinsLourds = penguins.filter(/* TODO */);
-// console.log("• filter() - Pingouins > 5000g:", pingouinsLourds.length);
-// console.log();
+const pingouinsLourds = penguins.filter(/* TODO */);
+console.log("• filter() - Pingouins > 5000g:", pingouinsLourds.length);
+console.log();
 
 // // ===== MÉTHODES DE TRANSFORMATION =====
 
