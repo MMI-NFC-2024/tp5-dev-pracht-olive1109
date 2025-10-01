@@ -180,80 +180,80 @@ console.log("• flat() - Groupes par île avant aplatissement:", groupesParIle)
 console.log("• flat() - Après aplatissement:", groupesParIle.flat());
 console.log();
 
-// // ===== STATISTIQUES FINALES =====
+// ===== STATISTIQUES FINALES =====
 
-// console.log("--- STATISTIQUES FINALES ---");
+console.log("--- STATISTIQUES FINALES ---");
 
-// // Calculs statistiques utilisant différentes méthodes
-// const masses = penguins.map(p => p.body_mass_g).filter(m => m != null);
-// const masseTotaleCalc = masses.reduce((sum, mass) => /* TODO */, 0);
-// const masseMoyenne = masseTotaleCalc / masses.length;
-// const masseMin = Math.min(...masses);
-// const masseMax = /* TODO */;
+// Calculs statistiques utilisant différentes méthodes
+const masses = penguins.map(p => p.body_mass_g).filter(m => m != null);
+const masseTotaleCalc = masses.reduce((sum, mass) => sum + mass , 0);
+const masseMoyenne = masseTotaleCalc / masses.length;
+const masseMin = Math.min(...masses);
+const masseMax = Math.max(...masses);
 
-// console.log("• Statistiques des masses:");
-// console.log(`  - Masse moyenne: ${masseMoyenne.toFixed(1)}g`);
-// console.log(`  - Masse minimale: ${masseMin}g`);
-// console.log(`  - Masse maximale: ${masseMax}g`);
+console.log("• Statistiques des masses:");
+console.log(`  - Masse moyenne: ${masseMoyenne.toFixed(1)}g`);
+console.log(`  - Masse minimale: ${masseMin}g`);
+console.log(`  - Masse maximale: ${masseMax}g`);
 
-// // Répartition par île
-// const repartitionIles = penguins.reduce((acc, p) => {
-//     acc[p.island] = (acc[p.island] || 0) + 1;
-//     return acc;
-// }, {} as Record<string, number>);
-// console.log("• Répartition par île:", repartitionIles);
+// Répartition par île
+const repartitionIles = penguins.reduce((acc, p) => {
+    acc[p.island] = (acc[p.island] || 0) + 1;
+    return acc;
+}, {} as Record<string, number>);
+console.log("• Répartition par île:", repartitionIles);
 
-// // Répartition par sexe
-// const repartitionSexe = penguins.reduce((acc, p) => {
-//     if (p.sex != null) {
-//         acc[p.sex] = (acc[p.sex] || 0) + 1;
-//     }
-//     return acc;
-// }, {} as Record<string, number>);
-// console.log("• Répartition par sexe:", repartitionSexe);
+// Répartition par sexe
+const repartitionSexe = penguins.reduce((acc, p) => {
+    if (p.sex != null) {
+        acc[p.sex] = (acc[p.sex] || 0) + 1;
+    }
+    return acc;
+}, {} as Record<string, number>);
+console.log("• Répartition par sexe:", repartitionSexe);
 
-// // =============================================
-// // GROUPEMENT DES DONNÉES AVEC Object.groupBy
-// // =============================================
+// =============================================
+// GROUPEMENT DES DONNÉES AVEC Object.groupBy
+// =============================================
 
-// console.log("\n--- GROUPEMENT AVEC Object.groupBy ---");
+console.log("\n--- GROUPEMENT AVEC Object.groupBy ---");
 
-// // Groupement par île
-// console.log("• Object.groupBy() - Répartition par île:");
-// const pingouinsParIle = Object.groupBy(penguins, /* TODO */);
-// for (const [ile, pingouins] of Object.entries(pingouinsParIle)) {
-//     console.log(`  ${ile}: ${pingouins?.length || 0} pingouins`);
-// }
+// Groupement par île
+console.log("• Object.groupBy() - Répartition par île:");
+const pingouinsParIle = Object.groupBy(penguins, p => p.island);
+for (const [ile, pingouins] of Object.entries(pingouinsParIle)) {
+    console.log(`  ${ile}: ${pingouins?.length || 0} pingouins`);
+}
 
 
-// // Groupement par espèce et sexe combinés
-// console.log("\n• Object.groupBy() - Répartition par espèce et sexe:");
-// const pingouinsParEspeceEtSexe = Object.groupBy(penguins, pingouin => 
-//     `${pingouin.species} - ${pingouin.sex || 'inconnu'}`
-// );
+// Groupement par espèce et sexe combinés
+console.log("\n• Object.groupBy() - Répartition par espèce et sexe:");
+const pingouinsParEspeceEtSexe = Object.groupBy(penguins, pingouin => 
+    `${pingouin.species} - ${pingouin.sex || 'inconnu'}`
+);
 
-// // Groupement par sexe
-// console.log("\n• Object.groupBy() - Répartition par sexe:");
-// const pingouinsParSexe = Object.groupBy(penguins, /* TODO remplacer null par "inconnu" */);
-// for (const [sexe, pingouins] of Object.entries(pingouinsParSexe)) {
-//     console.log(`  ${sexe}: ${pingouins?.length || 0} pingouins`);
-// }
+// Groupement par sexe
+console.log("\n• Object.groupBy() - Répartition par sexe:");
+const pingouinsParSexe = Object.groupBy(penguins, p => p.sex || 'inconnu');
+for (const [sexe, pingouins] of Object.entries(pingouinsParSexe)) {
+    console.log(`  ${sexe}: ${pingouins?.length || 0} pingouins`);
+}
 
-// // Groupement par catégorie de masse (léger, moyen, lourd)
-// console.log("\n• Object.groupBy() - Répartition par catégorie de masse:");
-// const pingouinsParCategorieMasse = Object.groupBy(penguins, pingouin => {
-//     if (!pingouin.body_mass_g) return 'masse inconnue';
-//     if (pingouin.body_mass_g < 3500) return 'léger';
-//     if (pingouin.body_mass_g < 4500) return 'moyen';
-//     return 'lourd';
-// });
+// Groupement par catégorie de masse (léger, moyen, lourd)
+console.log("\n• Object.groupBy() - Répartition par catégorie de masse:");
+const pingouinsParCategorieMasse = Object.groupBy(penguins, pingouin => {
+    if (!pingouin.body_mass_g) return 'masse inconnue';
+    if (pingouin.body_mass_g < 3500) return 'léger';
+    if (pingouin.body_mass_g < 4500) return 'moyen';
+    return 'lourd';
+});
 
-// Object.entries(pingouinsParCategorieMasse)
-//     .sort(([a], [b]) => a.localeCompare(b))
-//     .forEach(([categorie, pingouins]) => {
-//         console.log(`  ${categorie}: ${pingouins?.length || 0} pingouins`);
-//     });
+Object.entries(pingouinsParCategorieMasse)
+    .sort(([a], [b]) => a.localeCompare(b))
+    .forEach(([categorie, pingouins]) => {
+        console.log(`  ${categorie}: ${pingouins?.length || 0} pingouins`);
+    });
 
-// console.log("\n=== FIN DES EXEMPLES ===");
+console.log("\n=== FIN DES EXEMPLES ===");
 
 /* TODO Faire de même pour d'autres dataset : https://observablehq.com/@observablehq/sample-datasets (Possible d'utiliser COPILOT */
