@@ -166,19 +166,19 @@ console.log("• concat() - Mélange Adelies + Chinstraps:");
 melange.forEach(p => console.log(`  ${p.species} de ${p.island}`));
 console.log();
 
-// // ===== MÉTHODES D'APLATISSEMENT =====
+// ===== MÉTHODES D'APLATISSEMENT =====
 
-// console.log("--- MÉTHODES D'APLATISSEMENT ---");
+console.log("--- MÉTHODES D'APLATISSEMENT ---");
 
-// // flat() - Aplatit les tableaux imbriqués
-// const groupesParIle = [
-//     penguins.filter(p => p.island === "Torgersen").slice(0, 2).map(p => p.species),
-//     penguins.filter(p => p.island === "Biscoe").slice(0, 2).map(/* TODO */),
-//     penguins.filter(p => p.island === "Dream").slice(0, 2).map(/* TODO */)
-// ];
-// console.log("• flat() - Groupes par île avant aplatissement:", groupesParIle);
-// console.log("• flat() - Après aplatissement:", groupesParIle.flat());
-// console.log();
+// flat() - Aplatit les tableaux imbriqués
+const groupesParIle = [
+    penguins.filter(p => p.island === "Torgersen").slice(0, 2).map(p => p.species),
+    penguins.filter(p => p.island === "Biscoe").slice(0, 2).map(p => p.species),
+    penguins.filter(p => p.island === "Dream").slice(0, 2).map(p => p.species)
+];
+console.log("• flat() - Groupes par île avant aplatissement:", groupesParIle);
+console.log("• flat() - Après aplatissement:", groupesParIle.flat());
+console.log();
 
 // // ===== STATISTIQUES FINALES =====
 
