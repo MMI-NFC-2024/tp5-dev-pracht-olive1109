@@ -68,49 +68,49 @@ const pingouinsLourds = penguins.filter(p => p.body_mass_g != null && p.body_mas
 console.log("• filter() - Pingouins > 5000g:", pingouinsLourds.length);
 console.log();
 
-// // ===== MÉTHODES DE TRANSFORMATION =====
+// ===== MÉTHODES DE TRANSFORMATION =====
 
-// console.log("--- MÉTHODES DE TRANSFORMATION ---");
+console.log("--- MÉTHODES DE TRANSFORMATION ---");
 
-// // map() - Transforme chaque élément et crée un nouveau tableau
-// const descriptions = penguins.slice(0, 3).map(p => 
-//     `${p.species} (${p.sex}) - ${p.body_mass_g}g`
-// );
-// console.log("• map() - Descriptions des 3 premiers:");
-// descriptions.forEach(desc => console.log("  ", desc));
+// map() - Transforme chaque élément et crée un nouveau tableau
+const descriptions = penguins.slice(0, 3).map(p => 
+    `${p.species} (${p.sex}) - ${p.body_mass_g}g`
+);
+console.log("• map() - Descriptions des 3 premiers:");
+descriptions.forEach(desc => console.log("  ", desc));
 
-// /* IMPORTANT : noter ce code 
-// * L'usage de `map` pour n'extraire qu'une propriété.
-// * Et l'usage de `[...new Set()]` sur le résultat pour ne garder que les noms uniques
-// * Cela servira pour le prochain TP
-// */
-// const nomsEspeces = penguins.map(/* TODO */);
-// console.log("• map() - Espèces uniques:", [...new Set(nomsEspeces)]);
+/* IMPORTANT : noter ce code 
+* L'usage de `map` pour n'extraire qu'une propriété.
+* Et l'usage de `[...new Set()]` sur le résultat pour ne garder que les noms uniques
+* Cela servira pour le prochain TP
+*/
+const nomsEspeces = penguins.map(p => p.species);
+console.log("• map() - Espèces uniques:", [...new Set(nomsEspeces)]);
 
-// // flatMap() - Applique une fonction puis aplatit d'un niveau
-// const caracteristiques = penguins.slice(0, 2).flatMap(p => 
-//     [p.species, p.island, p.sex]
-// );
-// console.log("• flatMap() - Caractéristiques aplaties:", caracteristiques);
+// flatMap() - Applique une fonction puis aplatit d'un niveau
+const caracteristiques = penguins.slice(0, 2).flatMap(p => 
+    [p.species, p.island, p.sex]
+);
+console.log("• flatMap() - Caractéristiques aplaties:", caracteristiques);
 
-// // reduce() - Réduit le tableau à une seule valeur
-// const masseTotale = penguins.reduce((total, p) => 
-//     p.body_mass_g != null ? total + /* TODO */ : total, 0
-// );
-// console.log("• reduce() - Masse totale:", masseTotale, "grammes");
+// reduce() - Réduit le tableau à une seule valeur
+const masseTotale = penguins.reduce((total, p) => 
+    p.body_mass_g != null ? total + p.body_mass_g : total, 0
+);
+console.log("• reduce() - Masse totale:", masseTotale, "grammes");
 
-// const nbrParEspece = penguins.reduce((acc, p) => {
-//     acc[/* TODO */] = (acc[/* TODO */] || 0) + 1;
-//     return acc;
-// }, {} as Record<string, number>);
-// console.log("• reduce() - Comptage par espèce:", nbrParEspece);
+const nbrParEspece = penguins.reduce((acc, p) => {
+    acc[p.species] = (acc[p.species] || 0) + 1;
+    return acc;
+}, {} as Record<string, number>);
+console.log("• reduce() - Comptage par espèce:", nbrParEspece);
 
-// // reduceRight() - Réduit de droite à gauche
-// const derniersNoms = penguins.slice(-3).reduceRight((acc, p) => 
-//     acc + p.species + " ", ""
-// );
-// console.log("• reduceRight() - 3 dernières espèces (inversées):", derniersNoms.trim());
-// console.log();
+// reduceRight() - Réduit de droite à gauche
+const derniersNoms = penguins.slice(-3).reduceRight((acc, p) => 
+    acc + p.species + " ", ""
+);
+console.log("• reduceRight() - 3 dernières espèces (inversées):", derniersNoms.trim());
+console.log();
 
 // // ===== MÉTHODES DE TRI =====
 
