@@ -61,10 +61,10 @@ console.log();
 console.log("--- MÉTHODES DE FILTRAGE ---");
 
 // filter() - Crée un nouveau tableau avec les éléments qui passent un test
-const pingousinsMales = penguins.filter();
+const pingousinsMales = penguins.filter(p => p.sex === "MALE");
 console.log("• filter() - Nombre de mâles:", pingousinsMales.length);
 
-const pingouinsLourds = penguins.filter(/* TODO */);
+const pingouinsLourds = penguins.filter(p => p.body_mass_g != null && p.body_mass_g > 5000);
 console.log("• filter() - Pingouins > 5000g:", pingouinsLourds.length);
 console.log();
 
