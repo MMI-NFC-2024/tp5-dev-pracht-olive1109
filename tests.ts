@@ -141,18 +141,18 @@ penguins.slice(0, 3).forEach((p, index) => {
 });
 
 
-// // ===== MÉTHODES DE CONVERSION =====
+// ===== MÉTHODES DE CONVERSION =====
 
-// console.log("--- MÉTHODES DE CONVERSION ---");
+console.log("--- MÉTHODES DE CONVERSION ---");
 
-// // join() - Joint tous les éléments en une chaîne
-// const premiersNoms = penguins.slice(0, 5).map(p => p.species);
-// console.log("• join() - Espèces séparées par ' | ':", premiersNoms.join(" | "));
-// console.log("• join() - Espèces séparées par des virgules:", /* TODO */);
+// join() - Joint tous les éléments en une chaîne
+const premiersNoms = penguins.slice(0, 5).map(p => p.species);
+console.log("• join() - Espèces séparées par ' | ':", premiersNoms.join(" | "));
+console.log("• join() - Espèces séparées par des virgules:", premiersNoms.join(", "));
 
-// // toString() - Convertit en chaîne (équivalent à join(','))
-// console.log("• toString() - Premières masses:", penguins.slice(0, 3).map(p => p.body_mass_g).toString());
-// console.log();
+// toString() - Convertit en chaîne (équivalent à join(','))
+console.log("• toString() - Premières masses:", penguins.slice(0, 3).map(p => p.body_mass_g).toString());
+console.log("• join() - Premières masses à join", penguins.slice(0 , 3).map(p => p.body_mass_g).join(", "));
 
 // // ===== MÉTHODES DE CONCATÉNATION =====
 
