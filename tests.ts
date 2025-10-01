@@ -154,17 +154,17 @@ console.log("• join() - Espèces séparées par des virgules:", premiersNoms.j
 console.log("• toString() - Premières masses:", penguins.slice(0, 3).map(p => p.body_mass_g).toString());
 console.log("• join() - Premières masses à join", penguins.slice(0 , 3).map(p => p.body_mass_g).join(", "));
 
-// // ===== MÉTHODES DE CONCATÉNATION =====
+// ===== MÉTHODES DE CONCATÉNATION =====
 
-// console.log("--- MÉTHODES DE CONCATÉNATION ---");
+console.log("--- MÉTHODES DE CONCATÉNATION ---");
 
-// // concat() - Joint des tableaux
-// const adelies = penguins.filter(p => p.species === "Adelie").slice(0, 2);
-// const chinstraps = penguins.filter(p => p.species === "Chinstrap").slice(0, 2);
-// const melange = /* TODO */;
-// console.log("• concat() - Mélange Adelies + Chinstraps:");
-// melange.forEach(p => console.log(`  ${p.species} de ${p.island}`));
-// console.log();
+// concat() - Joint des tableaux
+const adelies = penguins.filter(p => p.species === "Adelie").slice(0, 2);
+const chinstraps = penguins.filter(p => p.species === "Chinstrap").slice(0, 2);
+const melange = adelies.concat(chinstraps);
+console.log("• concat() - Mélange Adelies + Chinstraps:");
+melange.forEach(p => console.log(`  ${p.species} de ${p.island}`));
+console.log();
 
 // // ===== MÉTHODES D'APLATISSEMENT =====
 
