@@ -130,15 +130,15 @@ console.log("• sort() - 10 premiers triés par espèce:");
 pingouinsParEspece.forEach(p => console.log(`  ${p.species} - ${p.island}`));
 console.log();
 
-// // ===== MÉTHODES D'ITÉRATION =====
+// ===== MÉTHODES D'ITÉRATION =====
 
-// console.log("--- MÉTHODES D'ITÉRATION ---");
+console.log("--- MÉTHODES D'ITÉRATION ---");
 
-// // forEach() - Exécute une fonction pour chaque élément
-// console.log("• forEach() - Affichage des 3 premiers pingouins:");
-// penguins.slice(0, 3).forEach((p, index) => {
-//     console.log(`  ${index + 1}. ${/* TODO  espece */} de ${/* TODO ile */} (${/* TODO masse */}g)`);
-// });
+// forEach() - Exécute une fonction pour chaque élément
+console.log("• forEach() - Affichage des 3 premiers pingouins:");
+penguins.slice(0, 3).forEach((p, index) => {
+    console.log(`  ${index + 1}. ${p.species} de ${p.island} (${p.body_mass_g}g)`);
+});
 
 
 // // ===== MÉTHODES DE CONVERSION =====
